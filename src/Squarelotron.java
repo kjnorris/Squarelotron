@@ -48,7 +48,16 @@ public class Squarelotron {
 	}
 	
 	Squarelotron mainDiagonalFlip(int ring) {
-		return new Squarelotron(this.size);
+		Squarelotron diagonal = new Squarelotron(this.size);
+		int min = ring - 1;
+		int max = this.size - ring;
+		for (int i = min; i <= max; i++) {
+			diagonal.squarelotron[i][min] = this.squarelotron[min][i];
+			diagonal.squarelotron[i][max] = this.squarelotron[max][i];
+			diagonal.squarelotron[min][i] = this.squarelotron[i][min];
+			diagonal.squarelotron[max][i] = this.squarelotron[i][max];
+		}
+		return diagonal;
 	}
 	
 	void rotateRight(int numberOfTurns) {
@@ -57,7 +66,7 @@ public class Squarelotron {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int nDim = 8;
+		int nDim = 3;
 		// int[][] testArray = new int[nDim][nDim];
 		Squarelotron mySquare = new Squarelotron(nDim);
 		// boolean isEqual;
@@ -72,7 +81,7 @@ public class Squarelotron {
 		
 		// System.out.println(Arrays.deepToString(testArray));
 		System.out.println(Arrays.deepToString(mySquare.squarelotron));
-		Squarelotron myUpside = mySquare.upsideDownFlip(3);
+		Squarelotron myUpside = mySquare.mainDiagonalFlip(1);
 		System.out.println(Arrays.deepToString(myUpside.squarelotron));
 		// isEqual = mySquare.equals(testArray);
 		
