@@ -48,7 +48,24 @@ public class SquarelotronTest {
 
 	@Test
 	public void testMainDiagonalFlip() {
-		fail("Not yet implemented");
+		int[][] testArray3 = {{1, 4, 7}, {2, 5, 8}, {3, 6, 9}};
+		Squarelotron mySquare3 = new Squarelotron(3);
+		Squarelotron myUpside3 = mySquare3.mainDiagonalFlip(1);
+		assertTrue(myUpside3.equals(testArray3));
+		
+		int[][] testArray4 = {{1, 5, 9, 13}, {2, 6, 7, 14},
+				{3, 10, 11, 15}, {4, 8, 12, 16}};
+		Squarelotron mySquare4 = new Squarelotron(4);
+		Squarelotron myUpside4 = mySquare4.mainDiagonalFlip(1);
+		assertTrue(myUpside4.equals(testArray4));
+		
+		int[][] testArray8 = {{1, 2, 3, 4, 5, 6, 7, 8}, {9, 10, 11, 12, 13, 14, 15, 16},
+				{17, 18, 19, 27, 35, 43, 23, 24}, {25, 26, 20, 28, 29, 44, 31, 32},
+				{33, 34, 21, 36, 37, 45, 39, 40}, {41, 42, 22, 30, 38, 46, 47, 48},
+				{49, 50, 51, 52, 53, 54, 55, 56}, {57, 58, 59, 60, 61, 62, 63, 64}};
+		Squarelotron mySquare8 = new Squarelotron(8);
+		Squarelotron myUpside8 = mySquare8.mainDiagonalFlip(3);
+		assertTrue(myUpside8.equals(testArray8));
 	}
 
 	@Test
