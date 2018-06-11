@@ -70,7 +70,25 @@ public class SquarelotronTest {
 
 	@Test
 	public void testRotateRight() {
-		fail("Not yet implemented");
+		int[][] testArray3 = {{7, 4, 1}, {8, 5, 2}, {9, 6, 3}};
+		Squarelotron mySquare3 = new Squarelotron(3);
+		mySquare3.rotateRight(1);
+		assertTrue(mySquare3.equals(testArray3));
+		
+		int[][] testArray3_2 = {{9, 8, 7}, {6, 5, 4}, {3, 2, 1}};
+		Squarelotron mySquare3_2 = new Squarelotron(3);
+		mySquare3_2.rotateRight(2);
+		assertTrue(mySquare3_2.equals(testArray3_2));
+		
+		int[][] testArray3_3 = {{9, 8, 7}, {6, 5, 4}, {3, 2, 1}};
+		Squarelotron mySquare3_3 = new Squarelotron(3);
+		mySquare3_3.rotateRight(-2);
+		assertTrue(mySquare3_3.equals(testArray3_3));
+		
+		int[][] testArray3_4 = {{3, 6, 9}, {2, 5, 8}, {1, 4, 7}};
+		Squarelotron mySquare3_4 = new Squarelotron(3);
+		mySquare3_4.rotateRight(-1);
+		assertTrue(mySquare3_4.equals(testArray3_4));
 	}
 
 }

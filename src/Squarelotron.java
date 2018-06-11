@@ -60,8 +60,32 @@ public class Squarelotron {
 		return diagonal;
 	}
 	
+	void rotateRightOnce() {
+		int[][] rotated = new int[this.size][this.size];
+		for (int i = 0; i < this.size; i++) {
+			for (int j = 0; j < this.size; j++) {
+				rotated[j][this.size - (i + 1)] = this.squarelotron[i][j];
+			}
+		}
+		for (int i = 0; i < this.size; i++) {
+			for (int j = 0; j < this.size; j++) {
+				this.squarelotron[i][j] = rotated[i][j];
+			}
+		}
+	}
+	
 	void rotateRight(int numberOfTurns) {
 		// Do nothing
+		if (numberOfTurns % 4 == 1 || numberOfTurns % 4 == -3) {
+			rotateRightOnce();
+		} else if (numberOfTurns % 4 == 2 || numberOfTurns % 4 == -2) {
+			rotateRightOnce();
+			rotateRightOnce();
+		} else if (numberOfTurns % 4 == 3 || numberOfTurns % 4 == -1) {
+			rotateRightOnce();
+			rotateRightOnce();
+			rotateRightOnce();
+		}
 	}
 
 	public static void main(String[] args) {
@@ -81,8 +105,8 @@ public class Squarelotron {
 		
 		// System.out.println(Arrays.deepToString(testArray));
 		System.out.println(Arrays.deepToString(mySquare.squarelotron));
-		Squarelotron myUpside = mySquare.mainDiagonalFlip(1);
-		System.out.println(Arrays.deepToString(myUpside.squarelotron));
+		mySquare.rotateRight(1);
+		System.out.println(Arrays.deepToString(mySquare.squarelotron));
 		// isEqual = mySquare.equals(testArray);
 		
 		/*
